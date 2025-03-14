@@ -14,8 +14,8 @@ from mails.models import Transaction
 # Gmail IMAP Configuration
 IMAP_SERVER = "imap.gmail.com"
 IMAP_PORT = 993
-EMAIL_USER = "aagya.shrestha12@gmail.com"  # Your Gmail address
-EMAIL_PASS = "kown eqan rtly bvqv"  # Use App Password from Google
+EMAIL_USER = "aagya.shrestha12@gmail.com"  
+EMAIL_PASS = "kown eqan rtly bvqv"  
 
 def fetch_emails():
     print("Fetching emails...")
@@ -64,8 +64,6 @@ def process_email(body):
 
     if amount and description:
         print(f"Extracted amount: {amount}, description: {description}")  # Debugging statement
-        save_to_db(amount, description)
-
 def save_to_db(amount, description):
     """Save extracted transaction data to the database."""
     transaction = Transaction(amount=float(amount.replace(",", "")), description=description, date=now())
